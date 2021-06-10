@@ -1,0 +1,11 @@
+commit 7dae842688b82cc0014213d7f3e5336d5e0c9388
+Author: Tim R <tirichards@google.com>
+Date:   Thu Jun 10 12:34:20 2021 -0700
+
+    Fixes issue with framing a quantized GLTF (#2463)
+    
+    * Fixes issue with framing a quantized GLTF
+    
+    fixes #2450
+    
+    * removed normalized check
