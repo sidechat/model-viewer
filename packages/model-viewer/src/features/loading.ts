@@ -82,6 +82,7 @@ export declare interface LoadingInterface {
   loading: LoadingAttributeValue;
   readonly loaded: boolean;
   readonly modelIsVisible: boolean;
+  readonly scene: any;
   dismissPoster(): void;
   showPoster(): void;
   getDimensions(): Vector3D;
@@ -250,7 +251,7 @@ export const LoadingMixin = <T extends Constructor<ModelViewerElementBase>>(
     protected[$modelIsRevealed] = false;
     protected[$transitioned] = false;
 
-    protected[$lastReportedProgress]: number = 0;
+    protected[$lastReportedProgress] = 0;
 
     protected[$posterDismissalSource]: DismissalSource|null = null;
 
@@ -343,7 +344,7 @@ export const LoadingMixin = <T extends Constructor<ModelViewerElementBase>>(
           'keydown', this[$onKeydown]);
       this[$progressTracker].removeEventListener('progress', this[$onProgress]);
 
-      loadingStatusAnnouncer.unregisterInstance(this)
+      loadingStatusAnnouncer.unregisterInstance(this);
     }
 
     async updated(changedProperties: Map<string, any>) {
