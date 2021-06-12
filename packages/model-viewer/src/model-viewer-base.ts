@@ -131,7 +131,7 @@ export default class ModelViewerElementBase extends UpdatingElement {
 
   /** @export */
   static get modelCacheSize(): number {
-    return CachingGLTFLoader[$evictionPolicy].evictionThreshold
+    return CachingGLTFLoader[$evictionPolicy].evictionThreshold;
   }
 
   /** @export */
@@ -198,6 +198,10 @@ export default class ModelViewerElementBase extends UpdatingElement {
     return this[$getModelIsVisible]();
   }
 
+  /** @export */
+  get scene() {
+    return this[$scene];
+  }
   /**
    * Creates a new ModelViewerElement.
    */
@@ -231,7 +235,8 @@ export default class ModelViewerElementBase extends UpdatingElement {
     // Because of potential race conditions related to invoking the constructor
     // we only use the bounding rect to set the initial size if the element is
     // already connected to the document:
-    let width, height;
+    let width;
+    let height;
     if (this.isConnected) {
       const rect = this.getBoundingClientRect();
       width = rect.width;
@@ -274,7 +279,7 @@ export default class ModelViewerElementBase extends UpdatingElement {
               return;
             }
 
-            for (let entry of entries) {
+            for (const entry of entries) {
               if (entry.target === this) {
                 this[$updateSize](entry.contentRect);
               }
@@ -283,8 +288,8 @@ export default class ModelViewerElementBase extends UpdatingElement {
     }
 
     if (HAS_INTERSECTION_OBSERVER) {
-      this[$intersectionObserver] = new IntersectionObserver(entries => {
-        for (let entry of entries) {
+      this[$intersectionObserver] = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
           if (entry.target === this) {
             const oldVisibility = this.modelIsVisible;
             this[$isElementInViewport] = entry.isIntersecting;
@@ -457,7 +462,7 @@ export default class ModelViewerElementBase extends UpdatingElement {
       });
     } finally {
       this[$updateSize]({width, height});
-    };
+    }
   }
 
   registerRenderer(renderer: RendererInterface) {
