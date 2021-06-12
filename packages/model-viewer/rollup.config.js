@@ -30,7 +30,7 @@ const onwarn = (warning, warn) => {
 };
 
 let plugins =
-    [resolve({dedupe: ['three']}), replace({'Reflect.decorate': 'undefined'})];
+    [replace({'Reflect.decorate': 'undefined'})];
 
 const watchFiles = ['lib/**'];
 
