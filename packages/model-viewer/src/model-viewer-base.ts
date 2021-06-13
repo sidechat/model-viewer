@@ -202,6 +202,12 @@ export default class ModelViewerElementBase extends UpdatingElement {
   get scene() {
     return this[$scene];
   }
+
+  /** @export */
+  get threeRenderer() {
+    return Renderer.singleton.threeRenderer;
+  }
+
   /**
    * Creates a new ModelViewerElement.
    */

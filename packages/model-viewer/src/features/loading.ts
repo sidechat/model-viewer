@@ -83,6 +83,7 @@ export declare interface LoadingInterface {
   readonly loaded: boolean;
   readonly modelIsVisible: boolean;
   readonly scene: any;
+  readonly threeRenderer: any;
   dismissPoster(): void;
   showPoster(): void;
   getDimensions(): Vector3D;
