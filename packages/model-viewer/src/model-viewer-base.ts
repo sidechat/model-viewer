@@ -204,8 +204,8 @@ export default class ModelViewerElementBase extends UpdatingElement {
   }
 
   /** @export */
-  get threeRenderer() {
-    return Renderer.singleton.threeRenderer;
+  get renderer() {
+    return Renderer.singleton;
   }
 
   /**

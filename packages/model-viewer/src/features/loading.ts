@@ -17,6 +17,7 @@ import {property} from 'lit-element';
 
 import ModelViewerElementBase, {$announceModelVisibility, $ariaLabel, $getModelIsVisible, $hasTransitioned, $isElementInViewport, $progressTracker, $scene, $sceneIsReady, $shouldAttemptPreload, $updateSource, $userInputElement, toVector3D, Vector3D} from '../model-viewer-base.js';
 import {$loader, CachingGLTFLoader} from '../three-components/CachingGLTFLoader.js';
+import {ModelScene} from '../three-components/ModelScene.js';
 import {Renderer} from '../three-components/Renderer.js';
 import {Constructor, throttle} from '../utilities.js';
 
@@ -82,8 +83,8 @@ export declare interface LoadingInterface {
   loading: LoadingAttributeValue;
   readonly loaded: boolean;
   readonly modelIsVisible: boolean;
-  readonly scene: any;
-  readonly threeRenderer: any;
+  readonly scene: ModelScene;
+  readonly renderer: Renderer;
   dismissPoster(): void;
   showPoster(): void;
   getDimensions(): Vector3D;
